@@ -1,0 +1,37 @@
+import os
+
+def obtener_coordenada(mensaje):
+    return int(input(mensaje))
+
+def identificar_cuadrante(x, y):
+    if x == 0 and y == 0:
+        return "Origen"
+    elif x == 0:
+        return "Eje Y"
+    elif y == 0:
+        return "Eje X"
+    elif x > 0 and y > 0:
+        return "Cuadrante I"
+    elif x < 0 and y > 0:
+        return "Cuadrante II"
+    elif x < 0 and y < 0:
+        return "Cuadrante III"
+    elif x > 0 and y < 0:
+        return "Cuadrante IV"
+
+def main():
+    while True:
+        x = obtener_coordenada("Ingresa el valor de x: ")
+        y = obtener_coordenada("Ingresa el valor de y: ")
+        
+        cuadrante = identificar_cuadrante(x, y)
+        
+        print(cuadrante)
+        
+        respuesta = input("¿Desea buscar otra coordenada? (1 = sí, 2 = no): ")
+        if respuesta == "2":
+            break
+
+if __name__ == "__main__":
+    main()
+    os.system('pause')
